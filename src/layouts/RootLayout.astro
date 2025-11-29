@@ -1,0 +1,60 @@
+---
+import { SEO } from "astro-seo";
+import "@fontsource-variable/rethink-sans";
+
+export interface Props {
+  title?: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const resolvedImageWithDomain = new URL(
+  "/opengraph.jpg",
+  Astro.site,
+).toString();
+
+const { title } = Astro.props;
+
+const makeTitle = title
+  ? title + " ⏤ " + "ايراد"
+  : "نظام ايراد - المحاسبي";
+---
+
+<!doctype html>
+<html lang="ar" dir="rtl" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zain:wght@200;300;400;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
+    <SEO
+      title={makeTitle}
+      description="ايراد is a premium astro website template for businesses, startup and SaaS."
+      canonical={canonicalURL}
+      twitter={{
+        creator: "@surjithctly",
+        site: "@web3templates",
+        card: "summary_large_image",
+      }}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: "website",
+          title: `ايراد - Business, SaaS & Startup Template`,
+          image: resolvedImageWithDomain,
+        },
+        image: {
+          alt: "ايراد Homepage Screenshot",
+        },
+      }}
+    />
+  </head>
+  <body class="font-sans antialiased min-h-full flex flex-col">
+    <slot />
+  </body>
+</html>

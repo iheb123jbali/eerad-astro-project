@@ -1,0 +1,173 @@
+---
+import Container from "@components/container.astro";
+import { Image } from "astro:assets";
+import Ellipse from "assets/ellipse.png";
+
+// Define your testimonials data
+const testimonials = [
+  {
+    title: "مجمّع طبي ممتاز",
+    text: " كمجمع طبي نستخدم برنامج ايراد في الحجوزات واداره المجمع بشكل كامل وحضور وانصراف وكل شيء كل شيء زين الصدق مررررررة شكرا ❤",
+    name: "مراجع",
+    rating: 5 // Assuming a rating out of 5
+  },
+  {
+    title: "تثمين عقاري سريع",
+    text: "حنا شركه تثمين عقاري ماخذين من عندهم النظام المثمنين يستخدمون البرنامج عن طريق الجوال ويرفعون البيانات للجهاز الرئيسي بصراحه العمليه ماشيه معانا بشكل جدا سريع جدا واشكركم بشده",
+    name: "مراجع",
+    rating: 5 // Assuming a rating out of 5
+  },
+  {
+    title: "برنامج ممتاز للمجال الغذائي",
+    text: "احنا شركه مواد غذائيه بالرياض في العزيزيه بصراحه قبل كده كنا بنستخدم برنامج سماك بس برنامج سماك بصراحه رغم انه هو قوي فعلا بس البرنامج ده ايراد فيه حاجات حقيقه انا تفاجات بها جدا مش موجوده ببرنامج سماك حتى البرنامج ده قوي جدا وسريع جدا اي حاجه انا عايزها اطلبها من الباشمهندس بيعملها لي يعني مثلا انا طلبت منه تقرير معين بتاع حاجه معينه كده فعلا زبطهولي وطلع زي ما انا رسمته له بالورقه والقلم عملوا لي بالشاشه",
+    name: "مراجع",
+    rating: 5 // Assuming a rating out of 5
+  },
+  {
+    title: "برنامج مرن وسلس للمشاغل",
+    text: "انا كوافيره واستخدمت نظام ايراد عندي في المشغل عندي 16 موظفه والبرنامج مره حلو ومره سلس ومره مرن وادخل فيه مشترياتي كلها واعرف منه حساباتي كلها واعرف كلكوافيره كم تبيع واعرف ربحي من كل كوافيرة صراحه مررررررة زين",
+    name: "مراجعة",
+    rating: 5 // Assuming a rating out of 5
+  },
+  {
+    title: "برنامج مميز",
+    text: "ما شاء الله تبارك الله والله انه برنامج زين والله انه زينه والامور سهلات والوجهات زينه وفلوسي الحين انا اعرف وين تروح وين تجي اول والله ان الحسابات ضايعه ولا ادري وين الدنيا ولا ادري الشغل زين ولا مو بزين والمشروع كله ما ادري اكمل ولا اقفل لكن ايراد هذا والله انه مضبوط يضبط لك الدنيا وتعرف اللي يراد حقك زين ولا مو زين",
+    name: "مراجع",
+    rating: 5 // Assuming a rating out of 5
+  }
+];
+---
+
+<!--====================== Testimonial ======================-->
+
+<div class="py-24">
+  <Container>
+    <div class="relative">
+      <div class="flex overflow-hidden pr-[10px] ml-[30px]">
+        <div id="testimonials-container" class="flex transition-transform duration-300 gap-4">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              class="testimonial-card min-w-full md:min-w-[50%] lg:min-w-[33.33%] px-4 py-8 flex flex-col justify-between cursor-pointer"
+              data-index={index}
+            >
+              <div class="flex flex-col flex-grow">
+                <h3 class="text-2xl font-bold py-4 mt-4 text-primary-strong">
+                  {testimonial.title}
+                </h3>
+                <p class="text-primary-strong text-xl leading-normal text-justify collapsed">
+                  {testimonial.text}
+                </p>
+              </div>
+              <div class="flex flex-col justify-end">
+                <div class="flex gap-1 pt-8">
+                  {Array.from({ length: testimonial.rating }).map((_, starIndex) => (
+                    <svg
+                      key={starIndex}
+                      xmlns="http://www.w3.org/2000/svg"
+                      version="1.1"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="16"
+                      height="16"
+                      x="0"
+                      y="0"
+                      viewBox="0 0 32 32"
+                      style="enable-background:new 0 0 512 512"
+                      xml:space="preserve"
+                      class="">
+                      <g>
+                        <path
+                          d="m29.911 13.75-6.229 6.072 1.471 8.576a1 1 0 0 1-1.451 1.054L16 25.403l-7.701 4.048a1 1 0 0 1-1.451-1.054l1.471-8.576-6.23-6.071a1 1 0 0 1 .555-1.706l8.609-1.25 3.85-7.802c.337-.683 1.457-.683 1.794 0l3.85 7.802 8.609 1.25a1.002 1.002 0 0 1 .555 1.706z"
+                          fill="#34c192"
+                          opacity="1"
+                          data-original="#000000"
+                          class=""
+                        />
+                      </g>
+                    </svg>
+                  ))}
+                </div>
+                <p class="text-primary-strong text-sm mt-2 font-semibold">
+                  {testimonial.name}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <button id="prev" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1">
+        &lt;
+      </button>
+      <button id="next" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white px-2 py-1">
+        &gt;
+      </button>
+    </div>
+  </Container>
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const container = document.getElementById('testimonials-container');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    const testimonials = Array.from(container.children);
+    const testimonialWidth = testimonials[0].offsetWidth;
+    const visibleCount = Math.floor(container.offsetWidth / testimonialWidth);
+    let currentIndex = 0;
+    const maxIndex = Math.ceil(testimonials.length / visibleCount) - 1;
+
+    function updatePosition() {
+      container.style.transform = `translateX(${currentIndex * testimonialWidth * visibleCount}px)`;
+    }
+
+    prevButton.addEventListener('click', () => {
+      if (currentIndex < maxIndex) {
+        currentIndex++;
+        updatePosition();
+      }
+    });
+
+    nextButton.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updatePosition();
+      }
+    });
+
+    // Ensure the container width is set correctly
+    container.style.width = `${testimonialWidth * testimonials.length}px`;
+
+    // Handle click to expand/collapse text
+    document.querySelectorAll('.testimonial-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const text = card.querySelector('p');
+        text.classList.toggle('collapsed');
+        text.classList.toggle('expanded');
+      });
+    });
+  });
+</script>
+
+<style>
+  .expanded {
+    max-height: 1000px; /* أو قيمة مناسبة لعرض النص بالكامل */
+  }
+  .collapsed {
+    max-height: 200px; /* أو القيمة التي ترغب في استخدامها لعرض النص الأساسي */
+    overflow: hidden;
+  }
+</style>
+<style>
+  /* Adjusting button positioning for RTL */
+  #prev {
+    right: 0;
+    left: auto;
+  }
+  #next {
+    left: 0;
+    right: auto;
+  }
+</style>
+
+

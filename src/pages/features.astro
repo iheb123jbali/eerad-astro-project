@@ -1,0 +1,243 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import { Image } from "astro:assets";
+import Task from "assets/task.png";
+import Traffic from "assets/traffic.png";
+import Pie from "assets/pie.png";
+import FeaturesCol from "@components/features-col.astro";
+import vectorImagebg from "assets/frame2.svg";
+import customReport from "assets/graph.png";
+import Growth from "assets/icon-7.svg";
+import salesFigure from "assets/graph2.png";
+const features = [
+  {
+    title: "نظام المحاسبة",
+    description: [
+      "يسمح لك بإنشاء مخطط حسابات قابل للتخصيص لإدارة دفاتر الأستاذ المحاسبية",
+      "يسجل المعاملات والحركات اليومية من خلال دفاتر القيود أو الدفع اليومية (دعم تعدد العملات)",
+      "تعريف جميع بيانات مراكز التكلفة والميزانيات",
+      "إصدار فواتير العملاء وإرسال طلبات الدفع",
+      "يوفر لك بيانات مالية موحدة في حالة امتلاكك لأكثر من شركة."
+    ],
+    image: Task,  // استبدل بـ import من صورتك
+  },
+  {
+    title: "نظام البيع والشراء",
+    description: [
+      "يسمح لك بترقيم الدفعات عن طريق تخزين بيانات المخزون",
+      "الاحتفاظ بأرقام تسلسلية للمخزون استناداً إلى السلع المخزونة",
+      "يوفر لك مواقع المستودعات الخاصة بك في شكل شجرة هرمية",
+      "الحفاظ على قوائم الأسعار للسلع بعملات مختلفة",
+      "تقدير قيمة المخزون بشكل دوري",
+      "إدارة البائعين الخاصين بمؤسستك",
+      "إدارة شراء المواد بناء على طلبات الشراء",
+      "إنشاء طلبات تلقائية لطلب المواد"
+    ],
+    image: Traffic,  // استبدل بـ import من صورتك
+  },
+  {
+    title: "نظام إدارة العملاء",
+    description: [
+      "يمكنك من أتمتة مهام فرق المبيعات الخاصة بك وتتبع كفاءتها",
+      "يدير دورة حياة العميل بأكملها ، مباشرة من تحويل العملاء المحتملين إلى عملاء فعليين حتى إغلاق صفقات المبيعات",
+      "يسمح لك بإرسال واستقبال رسائل البريد الإلكتروني من مباشرة من داخل النظام، وتحليل تقارير اكتساب العملاء وولائهم لمعرفة وتسجيل إيرادات العملاء على أساس سنوي."
+    ],
+    image: Pie,  // استبدل بـ import من صورتك
+  },
+  {
+    title: "نظام إدارة المشاريع",
+    description: [
+      "يوفر نماذج جاهزة للعديد من المهام المتكررة الخاصة بالمشاريع",
+      "يسمح لك بإسناد المهام المختلفة لأعضاء فريق العمل",
+      "خاصية المحادثة الفورية مع أعضاء فريقك الداخلي دون الحاجة إلى أدوات اتصال خارجية",
+      "إصدار فواتير للعملاء خلال مرحلة التسليم",
+      "إمكانية السماح للعملاء بالوصول للبيانات لمتابعة حالة المهام الجارية"
+    ],
+    image: Pie,  // استبدل بـ import من صورتك
+  },
+];
+
+---
+
+<Layout title="Features">
+
+  <!--====================== Features ======================-->
+  <div class="mt-24">
+    <Container>
+      <div>
+        <h2
+          class="text-primary-strong text-center text-3xl md:text-5xl font-bold">
+          مميزات إيراد
+        </h2>
+        <p
+          class="text-center text-primary-strong font-medium text-lg leading-normal max-w-3xl mx-auto pt-8">
+          تعدد وظائف ومميزات إيراد تجعله في مقدمة الأنظمة المحاسبية ، بحيث يشمل على تطبيقات متعددة لادارة الشركة ومتابعتها بمختلف المجالات والقطاعات مع امكانية الربط مع مزودي خدمات مثل الرسائل النصية و البريد الالكتروني والمتاجر
+        </p>
+      </div>
+      {
+        features.map(({ title, description, image }, index) => (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-24 mt-14 items-center">
+            <div class:list={[index % 2 === 0 ? "" : "md:order-1"]}>
+              <h2 class="text-primary-strong text-3xl md:text-5xl font-bold">
+                {title}
+              </h2>
+              <p class="text-primary-strong font-medium text-lg leading-normal max-w-4xl mx-auto pt-10">
+                {description.map((point, idx) => (
+          <li class="text-2xl py-2">{point}</li>
+        ))}
+              </p>
+              <div class="mt-14">
+                <a
+                  href="#"
+                  class="bg-primary text-lg font-medium rounded-lg py-5 px-8 text-white transition hover:bg-primary-strong">
+                  إبدأ التجربة
+                </a>
+              </div>
+            </div>
+            <div class="mx-auto bg-primary-soft py-24 px-10 w-full rounded-xl">
+              <Image src={image} alt="" class="mx-auto" />
+            </div>
+          </div>
+        ))
+      }
+    </Container>
+    <div class="my-12 py-12 bg-primary-soft">
+      <Container>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+    
+          <div>
+            <h3 class="text-primary-strong text-3xl md:text-4xl leading-normal font-bold">
+              نظام نقاط البيع: إدارة متكاملة لمتاجرك بكفاءة واحترافية
+            </h3>
+            <p class="text-primary-strong text-lg leading-8 py-8 leading-7">
+              يوفر نظام نقاط البيع لدينا أدوات قوية لإدارة متاجرك بفعالية وكفاءة، مع تحسين تجربة العملاء وتسريع عملية البيع. تم تصميم النظام ليتكامل مع جميع جوانب عملك لضمان عمليات سلسة وسريعة.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 sm:gap-10">
+              <div>
+                <ul>
+                  <li class="flex gap-3">
+                    <div class="w-5 h-5 bg-primary-accent rounded-full flex justify-center items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"/>
+                      </svg>
+                    </div>
+                    <span class="items-center flex text-primary-strong font-medium">
+                      إدارة المبيعات بشكل فعال
+                    </span>
+                  </li>
+                  <li class="flex gap-3 pt-3">
+                    <div class="w-5 h-5 bg-primary-accent rounded-full flex justify-center items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"/>
+                      </svg>
+                    </div>
+                    <span class="items-center flex text-primary-strong font-medium">
+                      إدارة المخزون وتحديثه
+                    </span>
+                  </li>
+                  <li class="flex gap-3 pt-3">
+                    <div class="w-5 h-5 bg-primary-accent rounded-full flex justify-center items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"/>
+                      </svg>
+                    </div>
+                    <span class="items-center flex text-primary-strong font-medium">
+                      تقارير مبيعات مفصلة
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li class="flex gap-3">
+                    <div class="w-5 h-5 bg-primary-accent rounded-full flex justify-center items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"/>
+                      </svg>
+                    </div>
+                    <span class="items-center flex text-primary-strong font-medium">
+                      التكامل مع نظم الدفع
+                    </span>
+                  </li>
+                  <li class="flex gap-3 pt-3">
+                    <div class="w-5 h-5 bg-primary-accent rounded-full flex justify-center items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"/>
+                      </svg>
+                    </div>
+                    <span class="items-center flex text-primary-strong font-medium">
+                      دعم تعدد الفروع
+                    </span>
+                  </li>
+                  <li class="flex gap-3 pt-3">
+                    <div class="w-5 h-5 bg-primary-accent rounded-full flex justify-center items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"/>
+                      </svg>
+                    </div>
+                    <span class="items-center flex text-primary-strong font-medium">
+                      دعم الأجهزة المحمولة
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="relative 2xl:mr-[8.375rem]">
+            <div class="absolute -bottom-1/4 -left-1/3 hidden 2xl:block z-0">
+              <Image src={vectorImagebg} alt="" />
+            </div>
+            <Image src={customReport} alt="" class="mx-auto md:mx-0" />
+          </div>
+        </div>
+      </Container>
+    </div>
+    
+  </div>
+  <!--//End Features -->
+  <!--====================== Our Solutions ======================-->
+
+  
+  
+    <Container>
+    <div class="flex items-center gap-4 mt-2 px-4">
+        <div
+            class="bg-primary-soft rounded-full h-12 w-12 shrink-0 flex justify-center items-center">
+            <Image src={Growth} alt="" />
+        </div>
+
+        <h3 class="text-primary text-2xl font-semibold relative">
+          <span class="absolute mb-1 inset-0 bg-[linear-gradient(180deg,transparent_60%,rgba(0,159,82,0.2)_40%)]"></span>
+
+            <span class="l">إيراد</span> يحتوي على دورة مشتريات ومبيعات متكاملة
+        </h3>
+    </div>
+    <p class="mt-4 text-lg">
+        يقدم نظام "إيراد" دورة متكاملة تشمل جميع مراحل المشتريات والمبيعات، مما يوفر لك نظامًا شاملاً لإدارة كافة العمليات التجارية بكفاءة عالية. من خلال هذه الدورة، يمكنك:
+    </p>
+    <ul class="list-disc list-inside text-lg mt-4">
+        <li>إرسال طلبات عروض الأسعار للموردين مع متابعة حالة الطلبات بكل سهولة.</li>
+        <li>إدارة أوامر الشراء بدءًا من إصدارها وحتى استلام المواد، مع توفير تقارير شاملة لكل مرحلة.</li>
+        <li>تتبع الدفعات والمدفوعات من الموردين والعملاء باستخدام نظام مالي دقيق.</li>
+        <li>إدارة المخزون بشكل متكامل يتيح لك الاطلاع على الكميات المتوفرة وإعداد التنبيهات الآلية لإعادة الطلب.</li>
+        <li>إصدار الفواتير إلكترونيًا، مع دعم إرسال الفواتير عبر البريد الإلكتروني بشكل مباشر للعملاء.</li>
+        <li>إعداد وإدارة العروض الترويجية والخصومات الخاصة، وربطها بعمليات البيع لتحفيز العملاء على الشراء.</li>
+        <li>تتبع أداء المبيعات والمشتريات من خلال لوحات التحكم والتقارير التفاعلية.</li>
+        <li>إرسال الإشعارات والتنبيهات التلقائية للموردين والعملاء للحفاظ على التواصل المستمر وضمان سلاسة العمليات.</li>
+    </ul>
+    <p class="mt-4 text-lg">
+        بفضل هذه الدورة المتكاملة، يضمن لك نظام "إيراد" تحقيق أعلى مستويات الكفاءة في إدارة أعمالك، مما يساعدك على اتخاذ القرارات السليمة بناءً على بيانات دقيقة وحديثة.
+    </p>
+  </Container>
+
+  <div>
+    <Container>
+      <div class="my-24">
+        <FeaturesCol />
+      </div>
+    </Container>
+  </div>
+  <!--//End Our Solutions -->
+
+</Layout>

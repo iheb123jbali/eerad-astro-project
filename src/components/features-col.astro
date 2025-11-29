@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import Marketing from "assets/icon-1.svg";
+import Strategic from "assets/icon-2.svg";
+import Analysing from "assets/icon-3.svg";
+import Financial from "assets/icon-4.svg";
+import Executive from "assets/icon-5.svg";
+import Speedup from "assets/icon-6.svg";
+
+const features = [
+  {
+    icon: Marketing,
+    title: "إدارة المبيعات",
+    description:
+      "إدارة دورة المبيعات كاملةً من عرض الأسعار حتى تسليم المنتج، مع متابعة الأداء ومراقبة أهداف المبيعات.",
+  },
+  {
+    icon: Financial,
+    title: "المحاسبة",
+    description:
+      "تحكم شامل في حساباتك المالية، من تسجيل القيود اليومية إلى إعداد القوائم المالية بدقة وسهولة.",
+  },
+  {
+    icon: Strategic,
+    title: "المخزون",
+    description:
+      "إدارة دقيقة لمخزونك، تتبع مستويات المنتجات، وتنظيم عمليات إعادة الطلب تلقائيًا لضمان توفر كل ما تحتاجه في الوقت المناسب.",
+  },
+  {
+    icon: Executive,
+    title: "المشتريات والمصروفات",
+    description:
+      "إدارة أوامر الشراء والمصروفات بفعالية، مع تتبع الفواتير والموردين في مكان واحد، لضبط النفقات وتحقيق أفضل قيمة.",
+  },
+  {
+    icon: Analysing,
+    title: " التقارير المالية والإدارية",
+    description:
+      "إنشاء تقارير مالية وإدارية شاملة توفر لك رؤية عميقة لأداء عملك، مما يساعدك في اتخاذ القرارات الإستراتيجية بثقة.",
+  },
+  {
+    icon: Speedup,
+    title: "العملاء والموردون",
+    description:
+      "إنشاء وإدارة قاعدة بيانات متكاملة لعملائك ومورديك، مما يسهل عليك التعامل معهم في كل مرة تصدر فيها فاتورة أو تقدم طلبًا.",
+  },
+];
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+  {
+    features.map((feature) => (
+      <div class="flex flex-wrap sm:flex-nowrap justify-center sm:justify-start gap-4 sm:gap-8">
+        <div>
+          <div class="bg-primary-soft rounded-full h-28 w-28 flex justify-center items-center">
+            <Image src={feature.icon} alt="" />
+          </div>
+        </div>
+        <div class="text-center sm:text-start">
+          <h3 class="text-primary-strong text-2xl font-semibold max-w-20">
+            {feature.title}
+          </h3>
+          <p class="pt-2 text-primary-strong">{feature.description}</p>
+        </div>
+      </div>
+    ))
+  }
+</div>

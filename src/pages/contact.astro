@@ -1,0 +1,72 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import { Image } from "astro:assets";
+import ContactImg from "assets/contact-img.png";
+import ContactForm from "@components/contact-form.astro";
+---
+
+<Layout title="Contact">
+  <!--====================== Contact ======================-->
+  <div class="py-24">
+    <Container>
+      <div>
+        <h2
+          class="text-primary-strong text-center text-3xl md:text-5xl mx-auto font-bold">
+        تواصل   مع نظام ايراد
+        </h2>
+        <p class="text-center text-primary-strong font-medium text-lg leading-normal max-w-3xl mx-auto pt-8">
+
+        نظام ايراد المحاسبي - ابدأ تجربتك وتواصل معنا
+        </p>
+        <p class="text-center text-primary-strong font-medium text-lg leading-normal max-w-3xl mx-auto pt-8">
+
+          يساعدك إيراد في التوسع بنشاطك التجاري عبر تسهيل وتسريع إدارة العمليات التشغيلية
+
+
+          </p>
+      </div>
+      <ContactForm />
+    </Container>
+    <!--//End Contact -->
+    <!--====================== Address ======================-->
+    <div>
+      <Container>
+        <div
+          class="flex flex-wrap gap-10 items-center pt-24 pb-40 mt-20 border-t">
+          <div class="flex flex-wrap flex-1 max-w-sm">
+            <div>
+              <h3 class="text-2xl text-primary-strong font-semibold">
+                Contact Head Office
+              </h3>
+              <p class="text-lg text-primary-strong mt-2">
+                Cariations of passages of Lorem Ipsum available, but the
+                majority have suffered alteration in some form repeat.
+              </p>
+            </div>
+            <div class="mt-10">
+              <span class="text-lg text-primary font-semibold">Email</span>
+              <div>
+                <a
+                  href="mailto:support@erad-template.com"
+                  class="text-xl mt-2 font-medium text-primary-strong">
+                  support@erad-template.com
+                </a>
+              </div>
+            </div>
+            <div class="mt-10">
+              <span class="text-lg text-primary font-semibold">Address</span>
+              <p class="text-xl mt-2 font-medium text-primary-strong">
+                Apt. 196 6376 Stiedemann, <br /> New Jeremiahburgh,<br /> LA 13330-2319
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-wrap">
+            <Image src={ContactImg} alt="" class="mx-auto" />
+          </div>
+        </div>
+      </Container>
+    </div>
+    <!--//End Address -->
+  </div>
+</Layout>
